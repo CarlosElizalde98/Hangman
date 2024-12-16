@@ -4,7 +4,7 @@ class Hangman
   def initialize(word)
     @word = word
     @score = 0
-    @correct_letters = Array.new(@word.length, "")
+    @correct_letters = Array.new(@word.length, "_")
     @incorrect_letters = []
   end
 
@@ -14,11 +14,12 @@ class Hangman
 
   def validate_guess(letter)
     word_array = @word.split('')
-    p word_array
-    p @correct_letters
+    p @word
     if word_array.include?(letter)
-      index = word_array.find_index(letter)
-      @correct_letters[index] = letter
+      word_array.each_with_index {|item, index| 
+      if item == letter
+        @correct_letters[index] = letter
+      end}
     else
       @incorrect_letters << letter
       self.update_score(1)
@@ -34,6 +35,7 @@ class Hangman
 
   def display_incorrect()
     incorrects = @incorrect_letters.join(" ")
-    puts "incorrect letters: #{incorrects}"
+    puts "incorrect letters: #{incorrects} \n 
+    attempts left: #{@incorrect_letters.length} / #{@word.length}"
   end
 end
