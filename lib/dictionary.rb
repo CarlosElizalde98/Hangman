@@ -7,9 +7,8 @@ class Dictionary
 
   def load_in
     dictionary = []
-    contents = File.readlines('../google-10000-english-no-sweats.txt')
+    contents = File.readlines('./google-10000-english-no-sweats.txt', chomp: true)
     contents.each do |word|
-
       dictionary << word
     end
     dictionary
@@ -23,5 +22,3 @@ class Dictionary
   end
 end
 
-test = Dictionary.new
-puts test.choose_random_word()
