@@ -1,0 +1,1 @@
+{"@game_win":false,"@game_loss":false,"@dictionary":"#<Dictionary:0x00007faeed567b58>","@random_word":"forced","@man":"#<Hangman:0x00007faeed58fe78>"}
